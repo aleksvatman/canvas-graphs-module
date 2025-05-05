@@ -9,6 +9,14 @@ export default defineConfig({
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'DiagramSheet',
       fileName: 'index'
+    },
+    rollupOptions: {
+      external: ['react'],
+      output: {
+        globals: {
+          react: "react"
+        }
+      }
     }
   },
   plugins: [react(), dts({ tsconfigPath: './tsconfig.app.json' })],
